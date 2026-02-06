@@ -1,4 +1,3 @@
-# CNPMNC-Student-Management-Project
 # Trả lời câu hỏi Lab 1
 
 ## 2. Ràng buộc Khóa Chính (Primary Key)
