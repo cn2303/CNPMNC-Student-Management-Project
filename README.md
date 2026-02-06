@@ -3,6 +3,7 @@
 ## 2. Ràng buộc Khóa Chính (Primary Key)
 
 Khi cố tình insert một sinh viên có `id` trùng, database báo lỗi: UNIQUE constraint failed
+
 Lý do: cột `id` được khai báo là `PRIMARY KEY`, nên mỗi giá trị phải **duy nhất** và **không được NULL**.
 
 Database chặn thao tác này để:
@@ -24,17 +25,9 @@ Khi insert sinh viên với `name = NULL`, database **không báo lỗi** vì c�
 - hiển thị dữ liệu sai
 - logic chương trình bị lỗi
 
-=> Thiếu ràng buộc dữ liệu làm giảm độ tin cậy của hệ thống.
+Thiếu ràng buộc dữ liệu làm giảm độ tin cậy của hệ thống.
 
 ---
 
-## Kết luận
-
-Constraints trong database giúp:
-- đảm bảo dữ liệu hợp lệ
-- giảm lỗi phía ứng dụng Java
-- bảo vệ toàn vẹn hệ thống
-
-Database nên được xem như lớp kiểm tra dữ liệu đầu tiên, không chỉ là nơi lưu trữ.
 
 
