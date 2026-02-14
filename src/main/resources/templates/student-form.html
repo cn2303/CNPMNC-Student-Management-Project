@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Form</title>
+</head>
+<body>
+
+<h2 th:text="${student.id == null} ? 'Thêm sinh viên' : 'Chỉnh sửa sinh viên'"></h2>
+
+<form th:action="@{/students}" th:object="${student}" method="post">
+
+    <!-- hidden id (quan trọng cho edit) -->
+    <div>
+        <label>Id</label>
+        <label>
+            <input type="text" th:field="*{id}" />
+        </label>
+    </div>
+
+
+    <div>
+        <label>Tên:</label>
+        <label>
+            <input type="text" th:field="*{name}" required />
+        </label>
+    </div>
+
+    <div>
+        <label>Email:</label>
+        <label>
+            <input type="email" th:field="*{email}" required />
+        </label>
+    </div>
+
+    <div>
+        <label>Tuổi:</label>
+        <label>
+            <input type="number" th:field="*{age}" required />
+        </label>
+    </div>
+
+    <br>
+
+    <button type="submit">Lưu</button>
+    <a th:href="@{/students}">Hủy</a>
+
+</form>
+
+</body>
+</html>

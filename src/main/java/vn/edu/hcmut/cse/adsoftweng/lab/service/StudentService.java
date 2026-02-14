@@ -19,4 +19,13 @@ public class StudentService {
     public Student getById(String id) {
         return studentRepository.findById(id).orElse(null);
     }
+    public List<Student> searchByName(String name){
+        return studentRepository.findByName(name);
+    }
+    public Student save(Student student) {
+        return studentRepository.save(student);
+    }
+    public void delete(String id) {
+        studentRepository.deleteById(id);
+    }
 }

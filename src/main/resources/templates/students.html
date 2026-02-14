@@ -13,6 +13,12 @@ th:* -->
     </style>
 </head>
 <body>
+<form action="/students" method="GET">
+    <label>
+        <input type="text" name="keyword" placeholder="Nhap ten..." />
+    </label>
+    <button type="submit">Tim</button>
+</form>
 <h1>Danh Sách Sinh Viên (SSR)</h1>
 <table>
     <thead>
@@ -31,6 +37,8 @@ th:* -->
         <td th:text="${student.name}">Tên Mẫu</td>
         <td th:text="${student.email}">Email Mẫu</td>
         <td th:text="${student.age}">0</td>
+    </tr>
+    <tr th:each="student : ${dsSinhVien}" th:class="${student.age < 18} ? 'text-danger' : ''">
     </tr>
     </tbody>
 </table>
