@@ -1,3 +1,7 @@
+CREATE DATABASE student;
+-- chuyển sang database student
+\c student;
+--Tạo database và dữ liệu
 create table student(
 	id VARCHAR(255) PRIMARY KEY,
 	name VARCHAR(255),
