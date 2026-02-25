@@ -1,0 +1,11 @@
+services:
+
+  app:
+    build: .
+    container_name: spring-app
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://ep-solitary-wave-a1oceegq-pooler.ap-southeast-1.aws.neon.tech/neondb?user=neondb_owner&password=npg_c3yFw6ZnUCVk&sslmode=require&channelBinding=require
+      SPRING_DATASOURCE_USERNAME: neondb_owner
+      SPRING_DATASOURCE_PASSWORD: npg_c3yFw6ZnUCVk
