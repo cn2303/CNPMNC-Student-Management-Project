@@ -1,6 +1,43 @@
-# Trả lời câu hỏi Lab 1
+# Student Management Project
 
-## 2. Ràng buộc Khóa Chính (Primary Key)
+## Danh sách nhóm
+
+|MSSV|Tên|
+|---|---|
+|2310365|Nguyễn Chu Nguyên Chương|
+|2310393|Nguyễn Hữu Thiên Cường|
+
+## Public Url của Web Service
+
+> https://cnpmnc-student-management-project.onrender.com
+
+---
+
+## Cách chạy dự án
+
+### 1. Yêu cầu:
+- Java Development Kit (JDK) 17+
+- Build Tool: Maven
+- Docker
+- Tài khoản <a href = "https://neon.com/">Neon Tech</a>
+### 2. Chạy dự án
+- Chỉnh cấu hình <a href = "https://neon.com/">Neon Tech</a> trong
+  `docker-compose.yml`
+
+      SPRING_DATASOURCE_URL:$connection_string
+      SPRING_DATASOURCE_USERNAME: $username 
+      SPRING_DATASOURCE_PASSWORD: $password
+- Chạy dự án:
+
+        #Build dự án
+        docker compose up --build
+
+        #Chạy dự án sau khi đã build
+        docker compose up
+---
+## Trả lời câu hỏi Lab 1
+
+### 2. Ràng buộc Khóa Chính (Primary Key)
 
 Khi cố tình insert một sinh viên có `id` trùng, database báo lỗi: UNIQUE constraint failed
 
@@ -15,7 +52,7 @@ Nếu cho phép trùng khóa chính, hệ thống sẽ không xác định đư�
 
 ---
 
-## 3. Toàn vẹn dữ liệu (Constraints)
+### 3. Toàn vẹn dữ liệu (Constraints)
 
 Khi insert sinh viên với `name = NULL`, database **không báo lỗi** vì cột `name` không có ràng buộc `NOT NULL`.
 
@@ -29,5 +66,11 @@ Thiếu ràng buộc dữ liệu làm giảm độ tin cậy của hệ thống.
 
 ---
 
+### 4. Cấu hình Hibernate:
+Tại sao mỗi lần tắt ứng dụng và chạy lại, dữ liệu cũ trong Database lại bị mất hết?
+
+Vì trong cấu hình spring (file application.properties) có dòng `spring.jpa.hibernate.ddl-auto=create`.
+
+Khi tắt ứng dụng và chạy lại Hibernate sẽ drop toàn bộ bảng cũ và tạo lại bảng mới &rarr; Dữ liệu cũ bị mất
 
 
