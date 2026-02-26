@@ -20,7 +20,7 @@ public class StudentService {
         return studentRepository.findById(id).orElse(null);
     }
     public List<Student> searchByName(String name){
-        return studentRepository.findByNameContaining(name);
+        return studentRepository.findByNameContainingIgnoreCase(name);
     }
     public Student save(Student student) {
         return studentRepository.save(student);
