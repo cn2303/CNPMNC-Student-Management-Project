@@ -11,6 +11,8 @@
 
 > https://cnpmnc-student-management-project.onrender.com
 
+**Lưu ý**: Vì sử dụng bản free của <a href = "https://render.com/">Render.com </a> nên có thể sẽ **mất khoảng 1 phút** để trang web hoạt động lại khi trang web không được sử dụng trong một khoảng thời gian
+
 ---
 
 ## Cách chạy dự án
@@ -21,12 +23,14 @@
 - Docker
 - Tài khoản <a href = "https://neon.com/">Neon Tech</a>
 ### 2. Chạy dự án
-- Chỉnh cấu hình <a href = "https://neon.com/">Neon Tech</a> trong
+- Chỉnh cấu hình kết nối <a href = "https://neon.com/">Neon Tech</a> trong
   `docker-compose.yml`
 
       SPRING_DATASOURCE_URL:$connection_string
       SPRING_DATASOURCE_USERNAME: $username 
       SPRING_DATASOURCE_PASSWORD: $password
+
+Có thể thêm dữ liệu mẫu trong file `student-postgre.sql`
 - Chạy dự án:
 
         #Build dự án
