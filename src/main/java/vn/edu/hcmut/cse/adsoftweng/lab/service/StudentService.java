@@ -8,6 +8,8 @@ import vn.edu.hcmut.cse.adsoftweng.lab.repository.StudentRepository;
 
 import java.util.List;
 
+import javax.management.RuntimeErrorException;
+
 @Service
 public class StudentService {
     @Autowired
@@ -21,6 +23,16 @@ public class StudentService {
     }
     public List<Student> searchByName(String name){
         return studentRepository.findByNameContainingIgnoreCase(name);
+    }
+    public Student addStudent(Student student){
+        if(student.getId() == null|| student.getId().trim().isEmpty()){
+            throw new RuntimeException("Thiếu ID");
+        }
+        if(studentRepository.existsById(student.getId())){
+            throw new RuntimeException("ID đã tồn tại");
+        }
+
+        return this.save(student);
     }
     public Student save(Student student) {
         return studentRepository.save(student);

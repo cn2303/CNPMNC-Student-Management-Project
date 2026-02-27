@@ -35,17 +35,32 @@ public class StudentWebController {
     @GetMapping("/new")
     public String getNewStudent(Model model) {
         model.addAttribute("student", new Student());
+        model.addAttribute("isEdit", false);
         return "student-form.html";
     }
     @GetMapping("/edit/{id}")
     public String getEditStudent(@PathVariable String id,Model model) {
         model.addAttribute("student", service.getById(id));
+        model.addAttribute("isEdit", true);
         return "student-form.html";
     }
-    @PostMapping
-    public String addStudent(@ModelAttribute Student student) {
+    @PostMapping("/update")
+    public String updateStudent(@ModelAttribute Student student, Model model) {
         service.save(student);
         return "redirect:/students";
+    }
+    @PostMapping
+    public String addStudent(@ModelAttribute Student student, Model model) {
+        try{
+            service.addStudent(student);
+            return "redirect:/students";
+        }
+        catch(Exception e){
+            model.addAttribute("error", e.getMessage());
+            model.addAttribute("student", student);
+            model.addAttribute("isEdit", false);
+            return "student-form";
+        }
     }
     @PostMapping("/{id}/delete")
     public String deleteStudent(@PathVariable String id) {
