@@ -26,9 +26,9 @@
 - Chỉnh cấu hình kết nối <a href = "https://neon.com/">Neon Tech</a> trong
   `docker-compose.yml`
 
-      SPRING_DATASOURCE_URL:$connection_string
-      SPRING_DATASOURCE_USERNAME: $username 
-      SPRING_DATASOURCE_PASSWORD: $password
+      SPRING_DATASOURCE_URL: <connection_string>
+      SPRING_DATASOURCE_USERNAME: <username>
+      SPRING_DATASOURCE_PASSWORD: <password>
 
 Có thể thêm dữ liệu mẫu trong file `student-postgre.sql`
 - Chạy dự án:
@@ -76,5 +76,33 @@ Tại sao mỗi lần tắt ứng dụng và chạy lại, dữ liệu cũ trong
 Vì trong cấu hình spring (file application.properties) có dòng `spring.jpa.hibernate.ddl-auto=create`.
 
 Khi tắt ứng dụng và chạy lại Hibernate sẽ drop toàn bộ bảng cũ và tạo lại bảng mới &rarr; Dữ liệu cũ bị mất
+
+---
+## Screen shot các module Lab 4
+
+### 1. Trang danh sách sinh viên
+
+<img src = "image/list-student.PNG" alt ="">
+
+### 2. Trang chi tiết
+
+<img src = "image/detail-student.PNG" alt ="">
+
+### 3. Thêm mới sinh viên
+
+<img src = "image/add-student.PNG" alt ="">
+
+### 4. Chỉnh sửa thông tin
+
+<img src = "image/edit-student.PNG" alt ="">
+
+### 5. Xóa sinh viên
+
+<img src = "image/remove-student.PNG" alt ="">
+
+### 6. Tìm kiếm sinh viên
+
+<img src = "image/search-student.PNG" alt ="">
+
 
 
