@@ -21,16 +21,7 @@
 - Java Development Kit (JDK) 17+
 - Build Tool: Maven
 - Docker
-- Tài khoản <a href = "https://neon.com/">Neon Tech</a>
 ### 2. Chạy dự án
-- Chỉnh cấu hình kết nối <a href = "https://neon.com/">Neon Tech</a> trong
-  `docker-compose.yml`
-
-      SPRING_DATASOURCE_URL: <connection_string>
-      SPRING_DATASOURCE_USERNAME: <username>
-      SPRING_DATASOURCE_PASSWORD: <password>
-
-Có thể thêm dữ liệu mẫu trong file `student-postgre.sql`
 - Chạy dự án:
 
         #Build dự án

@@ -1,4 +1,18 @@
+
 services:
+
+  db:
+    image: postgres:15
+    container_name: postgres-db
+    restart: always
+    environment:
+      POSTGRES_DB: student_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 12345678
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
 
   app:
     build: .
@@ -6,6 +20,11 @@ services:
     ports:
       - "8080:8080"
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://ep-solitary-wave-a1oceegq-pooler.ap-southeast-1.aws.neon.tech/neondb?user=neondb_owner&password=npg_c3yFw6ZnUCVk&sslmode=require&channelBinding=require
-      SPRING_DATASOURCE_USERNAME: neondb_owner
-      SPRING_DATASOURCE_PASSWORD: npg_c3yFw6ZnUCVk
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/student_db
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: 12345678
+    depends_on:
+      - db
+
+volumes:
+  postgres_data:
